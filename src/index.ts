@@ -21,8 +21,6 @@ const AI_CHAT_KEY = process.env.AI_CHAT_KEY;
 const AI_CHAT_MODEL = process.env.AI_CHAT_MODEL;
 const AI_CHAT_NAME = process.env.AI_CHAT_NAME;
 
-console.log("params", {AI_CHAT_BASE_URL, AI_CHAT_KEY, AI_CHAT_MODEL, AI_CHAT_NAME})
-
 if (!AI_CHAT_BASE_URL) {
   throw new Error("AI_CHAT_BASE_URL is required")
 }
