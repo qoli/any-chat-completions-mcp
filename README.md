@@ -122,4 +122,5 @@ The Inspector will provide a URL to access debugging tools in your browser.
 
 ### Acknowledgements
 
-This project is sponsored by [PyroPrompts](https://pyroprompts.com?ref=github-any-chat-completions-mcp). Use code `CLAUDEANYCHAT` for 20 free automation credits on Pyroprompts.
+- Obviously the modelcontextprotocol and Anthropic team for the MCP Specification and integration into Claude Desktop. [https://modelcontextprotocol.io/introduction](https://modelcontextprotocol.io/introduction)
+- [PyroPrompts](https://pyroprompts.com?ref=github-any-chat-completions-mcp) for sponsoring this project. Use code `CLAUDEANYCHAT` for 20 free automation credits on Pyroprompts.
