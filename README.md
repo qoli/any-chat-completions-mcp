@@ -8,6 +8,8 @@ This is a TypeScript-based MCP server that implements an implementation into any
 
 It has one tool, `chat` which relays a question to a configured AI Chat Provider.
 
+![Claude uses OpenAI](img/screencap.mov)
+
 ## Development
 
 Install dependencies:
