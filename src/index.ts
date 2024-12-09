@@ -36,6 +36,7 @@ if (!AI_CHAT_MODEL) {
 if (!AI_CHAT_NAME) {
   throw new Error("AI_CHAT_NAME is required")
 }
+const AI_CHAT_NAME_CLEAN = AI_CHAT_NAME.toLowerCase().replace(' ', '-')
 
 const server = new Server(
   {
@@ -76,7 +77,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
   return {
     tools: [
       {
-        name: "chat",
+        name: `chat-with-${AI_CHAT_NAME_CLEAN}`,
         description: `Text chat with ${AI_CHAT_NAME}`,
         inputSchema: {
           type: "object",
@@ -99,7 +100,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
  */
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   switch (request.params.name) {
-    case 'chat': {
+    case `chat-with-${AI_CHAT_NAME_CLEAN}`: {
       const content = String(request.params.arguments?.content)
       if (!content) {
         throw new Error("Content is required")
