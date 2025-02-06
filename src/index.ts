@@ -114,17 +114,21 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       const chatCompletion = await client.chat.completions.create({
         messages: [{ role: 'user', content: content }],
         model: AI_CHAT_MODEL,
+        stream: true,
       });
 
       // console.log(chatCompletion.choices[0]!.message?.content);
-      return {
-        content: [
-          {
-            type: "text",
-            text: chatCompletion.choices[0]!.message?.content
-          }
-        ]
+      const contentArray = [];
+      for await (const chunk of chatCompletion) {
+        contentArray.push({
+          type: "text",
+          text: chunk.choices[0]?.delta?.content || ""
+        });
       }
+
+      return {
+        content: contentArray
+      };
     }
 
     default:
